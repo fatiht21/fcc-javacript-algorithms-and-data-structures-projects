@@ -26,3 +26,48 @@ function rot13(str) {
 }
 
 console.log(rot13("SERR PBQR PNZC"));
+
+//s2
+function rot13(str) {
+  const alphabet = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
+  let resultArr = "";
+  for (let i = 0; i < str.length; i++) {
+    const isALetter = alphabet.includes(str[i]);
+    if (isALetter === false) {
+      resultArr += str[i];
+    } else {
+      const charIndex = alphabet.findIndex((c) => c === str[i]);
+      resultArr += alphabet[charIndex + 13] || alphabet[charIndex - 13];
+    }
+  }
+  return resultArr;
+}
+
+console.log(rot13("SERR PBQR PNZC"));
